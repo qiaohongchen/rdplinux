@@ -9,7 +9,7 @@ RUN mv proot /bin
 RUN tar -xvf v1.2.0.tar.gz
 RUN mkdir  $HOME/.vnc
 RUN echo 'tu' | vncpasswd -f > $HOME/.vnc/passwd
-RUN echo '/bin/env  MOZ_FAKE_NO_SANDBOX=1 dbus-launch xfce4-session'  > $HOME/.vnc/xstartup
+RUN echo '/bin/env  MOZ_FAKE_NO_SANDBOX=1 WINEPREFIX=/data dbus-launch xfce4-session'  > $HOME/.vnc/xstartup
 RUN chmod 600 $HOME/.vnc/passwd
 RUN chmod 755 $HOME/.vnc/xstartup
 RUN echo 'whoami ' >>/tu.sh
